@@ -17,13 +17,13 @@ class Main {
             System.out.print("Please enter your Username  : ");
 
             userName = input.nextLine();
-            System.out.print("Please enter your Password : ");
+            System.out.print("Please enter your  Password : ");
 
             password = input.nextLine();
 
 
             if (userName.equals("patika") && (password.equals("dev123"))) {
-                System.out.println(" WELCOME, BANK OF SAMET.");
+                System.out.println(" WELCOME,BANK OF SAMET.");
                 do {
                     System.out.println("1-Deposit\n " +
                             "2-WITHDRAW\n" +
