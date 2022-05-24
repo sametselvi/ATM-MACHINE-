@@ -1,81 +1,97 @@
-import javax.sound.midi.Soundbank;
 import java.util.Scanner;
 
-public class Main {
+
+class Main {
+
     public static void main(String[] args) {
-        int armutKilo, elmaKilo, domatesKilo, muzKilo, patlicanKilo;
 
-        double armut = 2.14, elma = 3.67, domates = 1.11, muz = 0.95, patlican = 5.00;
-
-        Scanner input = new Scanner(System.in);
-
-        System.out.println("Armut kilo miktarini giriniz : ");
-
-        armutKilo = input.nextInt();
-
-        double armutFiyat = armut * armutKilo;
-
-        System.out.println("Elma kilo miktarini giriniz : ");
-        elmaKilo = input.nextInt();
-
-        double elmaFiyat = elma * elmaKilo;
-
-        System.out.println("Domatesinizin kilo miktarini giriniz : ");
-
-        domatesKilo = input.nextInt();
-
-        double domatesFiyat = domates * domatesKilo;
-
-        System.out.println("Muzun kilosunu giriniz : ");
-
-        muzKilo = input.nextInt();
-        double muzFiyat = muz * muzKilo;
-
-        System.out.println("Patlicanin kilosunu giriniz : ");
-
-        patlicanKilo = input.nextInt();
-
-        double patlicanFiyat = patlican * patlicanKilo;
-
-        double total = patlicanFiyat + muzFiyat + domatesFiyat + elmaFiyat + armutFiyat;
-
-        System.out.println("Manavdaki toplam ücret tutarı : " + total + "TL");
+        String userName, password;
+        int right = 3;
+        int balance = 1500;
+        int select;
 
 
+        while (right > 0) {
+            Scanner input = new Scanner(System.in);
+
+            System.out.print("Please enter your Username  : ");
+
+            userName = input.nextLine();
+            System.out.print("Please enter your Password : ");
+
+            password = input.nextLine();
 
 
+            if (userName.equals("patika") && (password.equals("dev123"))) {
+                System.out.println(" WELCOME, BANK OF SAMET.");
+                do {
+                    System.out.println("1-Deposit\n " +
+                            "2-WITHDRAW\n" +
+                            "3-BALANCE\n" +
+                            "4-SIGN OUT ");
+                    System.out.println("Please, select an option.");
+                    select = input.nextInt();
+
+                    int newPrice;
 
 
+                    switch (select) {
+                        case 1:
+                            System.out.print(" Please, enter the amount of money for the deposit : ");
+                            newPrice = input.nextInt();
 
 
+                            balance += newPrice;
+                            break;
+
+                        case 2:
+                            System.out.print("Please, enter the amount of money for the withdraw : ");
+                            newPrice = input.nextInt();
+                            if (newPrice <= balance) {
+                                balance -= newPrice;
 
 
+                            } else {
+                                System.out.println("The balance is Inadequate in the bank account !");
+                            }
+
+                            break;
+                        case 3:
+                            System.out.println("Your balance  : " + balance);
+                            break;
+                        default:
+
+                    }
 
 
+                } while (select != 4);
+
+                System.out.println("We hope to see you again soon .");
 
 
+                break;
+            } else {
+                right--;
+
+                if (right == 0) {
+                    System.out.println("The account is blocked, please contact your bank.!");
 
 
+                } else {
+                    System.out.println("Your Username or Password is Wrong, Please try again !");
+
+                    System.out.println("The Remaining right : " + right);
+                }
 
 
+            }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        }
 
 
     }
+
+
 }
+
